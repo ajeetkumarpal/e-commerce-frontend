@@ -15,11 +15,13 @@ import Product from "./pages/Product";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation } from "react-router-dom";
+import { backendURL } from "./api";
 
 function App() {
   const location = useLocation();
   const hideFooter = location.pathname === "/login";
-
+ console.log(backendURL);
+ console.log(import.meta.env.VITE_BACKEND_URL);
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <ToastContainer autoClose={2000} />

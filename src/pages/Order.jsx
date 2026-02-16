@@ -4,10 +4,8 @@ import { toast } from "react-toastify";
 import { assets } from "../assets/admin_assets/assets";
 import Title from "../components/Title";
 import removeOrder from "../services/removeOrder";
-import { io } from "socket.io-client";
-import { backendURL } from "../api";
 
-const socket = io(`${backendURL}`);
+import { backendURL } from "../api";
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
@@ -34,20 +32,6 @@ const Order = () => {
 
   useEffect(() => {
     fetchOrders();
-
-    socket.on("orderStatusUpdated", (updatedOrder) => {
-      console.log("Socket update received:", updatedOrder);
-
-      setOrders((prevOrders) =>
-        prevOrders.map((order) =>
-          order._id === updatedOrder._id ? updatedOrder : order,
-        ),
-      );
-    });
-
-    return () => {
-      socket.off("orderStatusUpdated");
-    };
   }, []);
 
   const handleRemove = async (id) => {
