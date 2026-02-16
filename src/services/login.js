@@ -3,6 +3,7 @@ import axios from "axios";
 
 const loginApi = async (data, status) => { 
   try {
+    console.log("api",`${backendURL}/api/user/${status}`);
     const response = await axios.post(`${backendURL}/api/user/${status}`, data, {
       headers: { "Content-Type": "application/json" },
     });
