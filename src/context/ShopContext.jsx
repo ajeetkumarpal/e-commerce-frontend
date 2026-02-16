@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { products as staticProducts } from "../assets/frontend_assets/assets"; // static products
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import { backendURL } from "../api";
 import { ShopContext } from "./CreateShopContext";
 
 const ShopContextProvider = ({ children }) => {
@@ -25,7 +25,7 @@ const ShopContextProvider = ({ children }) => {
   const fetchAllProducts = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/product/list",
+        `${backendURL}/api/product/list`
       );
       const backendProducts = response.data.data;
 

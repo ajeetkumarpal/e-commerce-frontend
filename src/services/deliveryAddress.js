@@ -1,11 +1,11 @@
 import axios from "axios";
-import { backendURLOrder } from "../api";
+import { backendURL } from "../api";
 
 const deliveryAddress = async (deliveryDetail) => {
   try {
     console.log("start", deliveryDetail);
     const response = await axios.post(
-      backendURLOrder + "place",
+       `${backendURL}/api/order/place`,
       deliveryDetail,
       { headers: { "Content-Type": "application/json" } },
     );

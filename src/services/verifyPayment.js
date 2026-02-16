@@ -1,10 +1,10 @@
 import axios from "axios";
-import { backendURLPayment } from "../api";
+import { backendURL } from "../api";
 
 const verifyPaymentRajorpay = async (verifyData) => {
   try {
-    const response = await axios.post(
-      backendURLPayment + "rajorpay/verifypayment",
+    const response = await axios.post(  
+    `${backendURL}/api/payment/rajorpay/verifypayment`,     
       verifyData,
       {
         headers: {

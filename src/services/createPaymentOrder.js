@@ -1,10 +1,10 @@
 import axios from "axios";
-import { backendURLPayment } from "../api";
+import { backendURL } from "../api";
 
 const createPaymentRajorpay = async (paymentData) => {
   try {
-    const response = await axios.post(
-      backendURLPayment + "rajorpay/createorder",
+    const response = await axios.post(          
+      `${backendURL}/api/payment/rajorpay/createorder`,
       paymentData,
       {
         headers: {

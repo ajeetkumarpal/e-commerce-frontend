@@ -12,7 +12,6 @@ import Login from "./pages/Login";
 import Order from "./pages/Order";
 import PlaceOrder from "./pages/PlaceOrder";
 import Product from "./pages/Product";
-
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation } from "react-router-dom";
@@ -24,7 +23,6 @@ function App() {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <ToastContainer autoClose={2000} />
-
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

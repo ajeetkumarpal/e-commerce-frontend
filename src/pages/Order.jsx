@@ -5,8 +5,9 @@ import { assets } from "../assets/admin_assets/assets";
 import Title from "../components/Title";
 import removeOrder from "../services/removeOrder";
 import { io } from "socket.io-client";
+import { backendURL } from "../api";
 
-const socket = io("http://localhost:3000");
+const socket = io(`${backendURL}`);
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
@@ -16,7 +17,7 @@ const Order = () => {
     try {
       setLoading(true);
 
-      const res = await axios.get("http://localhost:3000/api/order/list");
+      const res = await axios.get(`${backendURL}/api/order/list`);
 
       if (res.data.success) {
         setOrders(res.data.data);
